@@ -1,0 +1,80 @@
+<!doctype html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<link href="css/mui.css" rel="stylesheet" />
+		<link rel="stylesheet" type="text/css" href="css/mui.min.css"/>
+		<link rel="stylesheet" type="text/css" href="css/dingdan.css"/>
+	</head>
+
+	<body>
+		<script src="js/mui.js"></script>
+		<script type="text/javascript">
+			mui.init();
+
+			mui.plusReady(function(){
+				var qu = JSON.parse(localStorage.getItem("ddate"));
+				var name = qu.name.text;
+				var type = qu.type.text;
+				var time = qu.time.text;
+				var h = document.getElementById("h");
+				h.children[0].children[0].innerHTML = time;
+				h.children[0].children[1].innerHTML = name;
+				h.children[0].children[2].innerHTML = type;
+			});
+				
+		</script>
+		
+		
+		<header class="mui-bar mui-bar-nav">
+			<a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
+			<h1 class="mui-title">订单</h1>
+		</header>
+		<div class="mui-content mui-scroll-wrapper" id="h">
+			
+			<div class="mui-card" style="margin-bottom: 10px;" id="h1">
+				<!--页眉，放置标题-->
+				<div class="mui-card-header">具体时间</div>
+				<!--内容区-->
+				<div class="mui-card-content" style="margin-left: 15px;">具体地点或店面</div>
+				<!--页脚，放置补充信息或支持的操作-->
+				<div class="mui-card-footer">交易状态(已完成、待完成)</div>
+			</div>
+			
+			<div class="mui-card" style="margin-bottom: 10px;" id="h2">
+				<!--页眉，放置标题-->
+				<div class="mui-card-header">具体时间</div>
+				<!--内容区-->
+				<div class="mui-card-content" style="margin-left: 15px;">具体地点或店面</div>
+				<!--页脚，放置补充信息或支持的操作-->
+				<div class="mui-card-footer">交易状态(已完成、待完成)</div>
+			</div>
+			
+			<div class="mui-card" style="margin-bottom: 10px;" id="h3">
+				<!--页眉，放置标题-->
+				<div class="mui-card-header">具体时间</div>
+				<!--内容区-->
+				<div class="mui-card-content" style="margin-left: 15px;">具体地点或店面</div>
+				<!--页脚，放置补充信息或支持的操作-->
+				<div class="mui-card-footer">交易状态(已完成、待完成)</div>
+			</div>
+			
+			<div class="mui-card" style="margin-bottom: 10px;" id="h4">
+				<!--页眉，放置标题-->
+				<div class="mui-card-header">具体时间</div>
+				<!--内容区-->
+				<div class="mui-card-content" style="margin-left: 15px;">具体地点或店面</div>
+				<!--页脚，放置补充信息或支持的操作-->
+				<div class="mui-card-footer">交易状态(已完成、待完成)</div>
+			</div>
+			
+
+			
+		</div>
+		
+	</body>
+
+</html>

@@ -1,0 +1,23 @@
+.qianbao-card{
+	margin-top: 80px;
+	border-radius: 15px;
+	box-shadow: 5px 5px 3px #888888;
+	width: 80%;
+	min-height: 200px;
+	margin-left: auto;
+	margin-right: auto;
+	background: #ecc5c5;
+	position: relative;
+}
+.yue_text{
+	position:absolute;
+	top: 10%;
+	left: 10%;
+}
+.chongzhi{
+	position: absolute;
+	bottom: 10%;
+	right: 10%;
+	background: skyblue;
+	border-radius: 8px;
+}

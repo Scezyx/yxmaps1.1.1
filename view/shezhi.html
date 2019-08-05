@@ -1,0 +1,118 @@
+<!doctype html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<link href="css/mui.css" rel="stylesheet" />
+		<link rel="stylesheet" href="css/shezhi.css">
+	</head>
+
+	<body>
+		<script src="js/mui.js"></script>
+		<script type="text/javascript">
+			mui.init();
+			mui.plusReady(function () {
+				var userID = [	//得到id数组传参到app进行交互
+					document.getElementById("nicheng"),
+					document.getElementById("account"),
+					document.getElementById("QQ"),
+					document.getElementById("email")
+					];
+			   var qu =JSON.parse(localStorage.getItem("Tuser"));
+			   userID[0].innerHTML = qu.nicheng;
+			   userID[1].innerHTML = qu.account;
+			   userID[2].innerHTML = qu.QQ;
+			   userID[3].innerHTML = qu.email;
+			   
+			   		 //退出操作******************
+			   		document.getElementById('exit').addEventListener('tap', function() {
+			   			if (mui.os.ios) {
+			   				app.setState({});
+			   				mui.openWindow({
+			   					url: 'login.html',
+			   					id: 'login',
+			   					show: {
+			   						aniShow: 'pop-in'
+			   					},
+			   					waiting: {
+			   						autoShow: false
+			   					}
+			   				});
+			   				return;
+			   			}
+			   			var btnArray = [{
+			   				title: "注销当前账号"
+			   			}, {
+			   				title: "直接关闭应用"
+			   			}];
+			   			plus.nativeUI.actionSheet({
+			   				cancel: "取消",
+			   				buttons: btnArray
+			   			}, function(event) {
+			   				var index = event.index;
+			   				switch (index) {
+			   					case 1:
+			   						//注销账号
+			   						app.setState({});
+			   						plus.webview.getLaunchWebview().show("pop-in");
+			   						//若启动页不是登录页，则需通过如下方式打开登录页
+			   //						mui.openWindow({
+			   //							url: 'login.html',
+			   //							id: 'login',
+			   //							show: {
+			   //								aniShow: 'pop-in'
+			   //							}
+			   //						});
+			   						break;
+			   					case 2:
+			   						plus.runtime.quit();
+			   						break;
+			   				}
+			   			});
+			   		}, false);
+			   
+			});
+		</script>
+		<script src="js/app.js"></script>
+		
+		
+		<header class="mui-bar mui-bar-nav">
+			<a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
+			<h1 class="mui-title">设置</h1>
+		</header>
+		<div class="mui-content mui-scroll-wrapper">
+			<div class="mui-scroll">
+				<ul class="mui-table-view">
+					<li class="mui-table-view-cell">
+						<a>昵称<span class="mui-pull-right" id="nicheng">Hbuilder</span></a>
+					</li>
+					<li class="mui-table-view-cell">
+						<a>账号<span class="mui-pull-right" id="account">hbuilder@dcloud.io</span></a>
+					</li>
+				</ul>
+				<ul class="mui-table-view">
+					<li class="mui-table-view-cell">
+						<a>QQ号<span class="mui-pull-right" id="QQ">88888888</span></a>
+					</li>
+					<li class="mui-table-view-cell">
+						<a>邮箱地址<span class="mui-pull-right" id="email">hbuilder@dcloud.io</span></a>
+					</li>
+				</ul>
+				<ul class="mui-table-view exit">
+					<li class="mui-table-view-cell">
+						<a id='exit'>退出登录</a>
+					</li>
+				</ul>
+			</div>
+		</div>
+		
+		
+
+		
+		
+		
+	</body>
+
+</html>
